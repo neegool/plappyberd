@@ -13,8 +13,11 @@ parts
 bin
 var
 sdist
+resources
+misc
 develop-eggs
 .installed.cfg
+.spec
 lib
 lib64
 __pycache__
