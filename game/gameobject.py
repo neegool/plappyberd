@@ -61,7 +61,7 @@ class GameObject(pyglet.sprite.Sprite):
 			if obj.name == name:
 				found_objects.append(obj)
 
-		return found_objects[0]
+		return found_objects
 
 	@staticmethod
 	def find_game_object(name):
