@@ -135,8 +135,6 @@ class GUIManager(gameobject.GameObject):
 		return len(int_list), offset_x
 
 	def offset_sprite_list(self, sprites, offset):
-		#diff = offset - (resources.screen_width * 0.5)
-
 		for i in range(0, len(sprites)):
 			sprites[i].x += offset
 			sprites[i].visible = True
@@ -178,6 +176,7 @@ class GUIManager(gameobject.GameObject):
 					#self.resultpanel.fade_in(1024)
 					self.over = True
 
+		# show the game over image
 		if self.over == True and self.result == False:
 			self.gameover.y += 100 * self.movement * dt
 			if self.gameover.y > 367 and self.movement == 1:
@@ -191,6 +190,7 @@ class GUIManager(gameobject.GameObject):
 				self.movement = 0
 				self.counter = 0
 
+		# show the result panel
 		if self.result == True and self.done == False:
 			self.resultpanel.active = True
 			delta = util.clamp(math.sin(5 * self.counter) * 260, -1000, 260)
@@ -201,8 +201,8 @@ class GUIManager(gameobject.GameObject):
 				self.resultpanel.y = 259
 				self.done = True
 				self.counter = -0.25
-				#self.result = False
 
+		# show the scores and medals
 		if self.done == True:
 			if self.counter > 0.05:
 				if self.result_current_score < self.player.score:

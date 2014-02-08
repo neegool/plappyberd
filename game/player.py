@@ -42,12 +42,20 @@ class Player(gameobject.GameObject):
 
 		rotate_direction = 1
 
+		# change animation rate of the flapping bird
+		# animation is slower on the "Get Ready" screen than on the actual gameplay
 		if self.ready == False:
 			self.limit = 0.12
 			rotate_direction = 0
 		else:
 			self.limit = 0.05
 
+		# make bird hover on the "Get Ready" screen
+		if self.ready == False:
+			self.y = self.base_y + math.sin((8 * self.counter) % (2 * math.pi)) * 4
+
+
+		# stop flapping if the bird dips down
 		if self.dead == False and self.timer >= self.limit:
 			self.image = resources.spriteDictionary[self.color_choice][self.spriteIndex]
 			if self.ready == False or self.rotation <= 0:
@@ -56,6 +64,7 @@ class Player(gameobject.GameObject):
 				self.spriteIndex = 1
 			self.timer = 0
 
+		# handle jump
 		if self.dead == False:
 			if self.keyHandler[key.SPACE] or self.mouse_pressed == True:
 				if self.ready == False:
@@ -74,15 +83,13 @@ class Player(gameobject.GameObject):
 		if self.grounded == False and self.ready == True:
 			self.velocity_y = max(self.velocity_y - self.gravity, -2 * self.acceleration)
 
-		if self.ready == False:
-			self.y = self.base_y + math.sin((8 * self.counter) % (2 * math.pi)) * 4
-
+		# play die sound when hit
 		if self.dead == True and self.counter > 0.3:
 			if self.tile_hit_first == False:
 				resources.soundDictionary['die'].play()
 				self.counter = -999
 
-		# check for ball collisions
+		# check for collisions
 		for obj in gameobject.GameObject.get_game_objects(True):
 			if obj != self and obj.solid == True:
 				if self.collides_with(obj):
@@ -105,6 +112,9 @@ class Player(gameobject.GameObject):
 						self.y = obj.y + (obj.image.height + self.image.height) * 0.5
 						self.grounded = True
 
+		# handle bird rotation
+		# lift the bird up if positive velocity
+		# dip the bird down if it's lower than the jump point
 		rotate_factor = 2 * dt
 		if self.velocity_y <= 0 and self.y <= self.jump_point_y + self.image.height:
 			rotate_direction = -1

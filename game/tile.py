@@ -10,6 +10,7 @@ class Tile(gameobject.GameObject):
 
 		Tile.velocity_x = resources.GAME_SPEED
 
+	# wrap tiles around
 	def check_bounds(self):
 		min_x = resources.screen_width * 0.5 - self.image.width * 1.5
 		if self.x <= min_x:

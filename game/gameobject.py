@@ -23,6 +23,7 @@ class GameObject(pyglet.sprite.Sprite):
 		#add game object to pool
 		GameObject.pool.append(self)
 
+	# rectangle-rectangle collision
 	# def collides_with(self, other):
 	# 	c1 = self.collider
 	# 	c2 = other.collider
@@ -32,6 +33,8 @@ class GameObject(pyglet.sprite.Sprite):
 	# 			    other.y + c2['top'] <  self.y + c1['bottom'] or
 	# 			    other.y + c2['bottom'] >  self.y + c1['top'])
 
+	# circle-rectangle collision
+	# bird uses a circular collider, pipes and tiles uses rectangle colliders
 	def collides_with(self, other):
 		o = other.collider
 

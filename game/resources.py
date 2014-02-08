@@ -18,6 +18,8 @@ def center_image(image):
 	image.anchor_x = image.width * 0.5
 	image.anchor_y = image.height * 0.5
 
+
+# load user preferences
 media_path = './data/media'
 
 pyglet.resource.path = ['./data/resources.zip']
@@ -48,7 +50,7 @@ save_data.close()
 
 no_sprite = pyglet.resource.image("blank.png")
 
-# create a dictionary for sprites for easier access later
+# create a dictionary for sprites and sounds for easier access later
 spriteDictionary = {}
 
 spriteDictionary['plappyberd'] 		= pyglet.resource.image("plappyberd.png")

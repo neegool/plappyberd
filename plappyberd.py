@@ -10,6 +10,7 @@ game_window.set_caption("PlappyBerd")
 # initialize objects
 newplayer = None
 
+# resources for title screen
 def init_title():
 	newbg = bg.Background(x = resources.screen_width * 0.5,
 							y = resources.screen_height * 0.5)
@@ -29,6 +30,7 @@ def init_title():
 		newtile = tile.Tile(x = tile_x, y = 56)
 		tile_x += newtile.image.width
 
+# resources for gameplay level
 def init_level():
 	newbg = bg.Background(x = resources.screen_width * 0.5,
 							y = resources.screen_height * 0.5)
@@ -53,6 +55,7 @@ def init_level():
 
 	resources.GameManager.game_state = 'GAMEPLAY_STATE'
 
+# cleanup resources
 def delete():
 	for obj in gameobject.GameObject.pool:
 		if obj.name != "Fader":

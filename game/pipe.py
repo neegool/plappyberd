@@ -3,6 +3,8 @@ import math, gameobject, resources, player, random, util
 class PipeManager(gameobject.GameObject):
 	velocity_x = resources.GAME_SPEED
 
+	# classify pipe gap locations into three tiers
+	# pick a random threshold (pipe_limit)
 	hole_tier = {
 		'high': resources.screen_height * 0.75,
 		'mid' : resources.screen_height * 0.6,
@@ -29,6 +31,8 @@ class PipeManager(gameobject.GameObject):
 		PipeManager.pipe_counter = 0
 		PipeManager.velocity_x = resources.GAME_SPEED
 
+	# wrap the pipe around and change the offset of the gaps
+	# if pipe_limit is reached, pick a random tier
 	def check_bounds(self):
 		min_x = resources.screen_width * 0.5 - resources.PIPE_DISTANCE * 2.5
 		if self.x <= min_x:
@@ -45,7 +49,6 @@ class PipeManager(gameobject.GameObject):
 			if PipeManager.pipe_counter >= PipeManager.pipe_limit:
 				PipeManager.pipe_limit = random.randint(2, 5)
 				choice = random.choice(['high', 'mid', 'low'])
-				# print "Tier:", choice, "limit:", PipeManager.pipe_limit
 				PipeManager.current_tier = PipeManager.hole_tier[choice]
 				PipeManager.pipe_counter = 0
 
