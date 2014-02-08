@@ -1,6 +1,6 @@
 import pyglet, random
 from pyglet.window import key, mouse
-from game import bg, ball, pipe, player, tile, resources, gameobject, gui, util
+from game import bg, pipe, player, tile, resources, gameobject, gui, util
 
 # initialize the game window
 # it is currently set to 800x600, but you may change this as needed.
