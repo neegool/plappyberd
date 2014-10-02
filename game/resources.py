@@ -99,11 +99,11 @@ for i in range(0, 10):
 
 soundDictionary = {}
 
-soundDictionary['wing'] 		= pyglet.media.load(os.path.join(media_path, "sfx_wing.ogg"), streaming = False)
-soundDictionary['hit'] 			= pyglet.media.load(os.path.join(media_path, "sfx_hit.ogg"), streaming = False)
-soundDictionary['point'] 		= pyglet.media.load(os.path.join(media_path, "sfx_point.ogg"), streaming = False)
-soundDictionary['die'] 			= pyglet.media.load(os.path.join(media_path, "sfx_die.ogg"), streaming = False)
-soundDictionary['swooshing'] 	= pyglet.media.load(os.path.join(media_path, "sfx_swooshing.ogg"), streaming = False)
+#soundDictionary['wing'] 		= pyglet.media.load(os.path.join(media_path, "sfx_wing.ogg"), streaming = False)
+#soundDictionary['hit'] 			= pyglet.media.load(os.path.join(media_path, "sfx_hit.ogg"), streaming = False)
+#soundDictionary['point'] 		= pyglet.media.load(os.path.join(media_path, "sfx_point.ogg"), streaming = False)
+#soundDictionary['die'] 			= pyglet.media.load(os.path.join(media_path, "sfx_die.ogg"), streaming = False)
+#soundDictionary['swooshing'] 	= pyglet.media.load(os.path.join(media_path, "sfx_swooshing.ogg"), streaming = False)
 
 # center the anchor point of each sprite in the dictionary
 for key in spriteDictionary:

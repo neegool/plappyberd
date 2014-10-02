@@ -80,11 +80,11 @@ def on_mouse_press(x, y, button, modifiers):
 def on_key_press(symbol, modifiers):
 	if symbol == key.SPACE:
 		if resources.GameManager.game_state == 'TITLE_STATE':
-			resources.soundDictionary['swooshing'].play()
+			#resources.soundDictionary['swooshing'].play()
 			delete()
 			init_level()
 		elif resources.GameManager.game_state == 'GAMEOVER_STATE':
-			resources.soundDictionary['swooshing'].play()
+			#resources.soundDictionary['swooshing'].play()
 			delete()
 			init_level()
 

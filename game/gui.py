@@ -169,7 +169,7 @@ class GUIManager(gameobject.GameObject):
 						obj.set_opacity(0)
 						obj.active = False
 
-					resources.soundDictionary['swooshing'].play()
+					#resources.soundDictionary['swooshing'].play()
 
 					self.gameover.active = True
 					self.gameover.fade_in(1024)
@@ -185,7 +185,7 @@ class GUIManager(gameobject.GameObject):
 				self.gameover.y = 359
 				self.movement = 0
 			if self.counter > 1.5:
-				resources.soundDictionary['swooshing'].play()
+				#resources.soundDictionary['swooshing'].play()
 				self.result = True
 				self.movement = 0
 				self.counter = 0

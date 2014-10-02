@@ -71,7 +71,7 @@ class Player(gameobject.GameObject):
 					self.ready = True
 					Player.current_player = (Player.current_player + 1) % len(Player.player_list)
 				if self.jump_pressed == False and self.y < resources.screen_height:
-					resources.soundDictionary['wing'].play()
+					#resources.soundDictionary['wing'].play()
 					self.jump_point_y = self.y
 					self.velocity_y = self.acceleration
 					self.jump_pressed = True
@@ -86,7 +86,7 @@ class Player(gameobject.GameObject):
 		# play die sound when hit
 		if self.dead == True and self.counter > 0.3:
 			if self.tile_hit_first == False:
-				resources.soundDictionary['die'].play()
+				#resources.soundDictionary['die'].play()
 				self.counter = -999
 
 		# check for collisions
@@ -95,11 +95,11 @@ class Player(gameobject.GameObject):
 				if self.collides_with(obj):
 					if obj.name == 'PipeManager':
 						if obj.cleared == False:
-							resources.soundDictionary['point'].play()
+							#resources.soundDictionary['point'].play()
 							self.score += 1
 							obj.cleared = True
 					elif self.dead == False:
-						resources.soundDictionary['hit'].play()
+						#resources.soundDictionary['hit'].play()
 						self.tile_hit_first = (obj.name == 'Tile')
 						self.velocity_y = 0
 						self.dead = True
