@@ -1,5 +1,6 @@
 from pyglet.window import key, mouse
-import math, util, bg, gameobject, tile, pipe, resources, random
+import math, random
+from . import util, bg, gameobject, tile, pipe, resources
 
 class Player(gameobject.GameObject):
 	player_list = []

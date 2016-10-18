@@ -1,4 +1,5 @@
-import math, gameobject, resources, player, random, util
+import math, random
+from . import gameobject, resources, util
 
 class PipeManager(gameobject.GameObject):
 	velocity_x = resources.GAME_SPEED

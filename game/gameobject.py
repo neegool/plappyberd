@@ -1,4 +1,5 @@
-import pyglet, util
+import pyglet
+from . import util
 
 class GameObject(pyglet.sprite.Sprite):
 	pool = []

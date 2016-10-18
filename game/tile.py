@@ -1,4 +1,5 @@
-import math, gameobject, resources
+import math
+from . import gameobject, resources
 
 class Tile(gameobject.GameObject):
 	velocity_x = resources.GAME_SPEED

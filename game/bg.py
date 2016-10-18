@@ -1,4 +1,5 @@
-import math, gameobject, resources, random, util
+import math, random
+from . import gameobject, resources
 
 class Background(gameobject.GameObject):
 	def __init__(self, *args, **kwargs):

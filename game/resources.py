@@ -1,4 +1,7 @@
-import os, pyglet, util
+import os, pyglet
+
+pyglet.lib.load_library('avbin64')
+pyglet.have_avbin = True
 
 screen_width = 288
 screen_height = 512
@@ -33,14 +36,17 @@ save_data = None
 data_path = os.path.join(dir, 'data.sav')
 
 try:
-	save_data = open(data_path, 'r')
+	save_data = open(data_path, 'rt')
 except IOError:
-	save_data = open(data_path, 'wb')
+	print('no save data found')
+	save_data = open(data_path, 'wt')
 	save_data.write("highscore:0\n")
 	save_data.close()
-	save_data = open(data_path, 'r')
+	save_data = open(data_path, 'rt')
 
 data = {}
+
+data['highscore'] = 0
 
 for line in save_data:
 	key, value = line.split(':')
@@ -115,7 +121,7 @@ for key in spriteDictionary:
 
 def write_data(key, value):
 	data[key] = value
-	save_data = open(data_path, 'w')
+	save_data = open(data_path, 'wt')
 	for k in data:
 		save_data.write(k + ":" + str(data[k]) + '\n')
 	save_data.close()

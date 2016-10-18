@@ -30,6 +30,8 @@ def init_title():
 		newtile = tile.Tile(x = tile_x, y = 56)
 		tile_x += newtile.image.width
 
+	resources.GameManager.game_state = 'TITLE_STATE'
+
 # resources for gameplay level
 def init_level():
 	newbg = bg.Background(x = resources.screen_width * 0.5,
@@ -45,7 +47,9 @@ def init_level():
 
 	newplayer = player.Player(x = 89, y = 300)
 	game_window.push_handlers(newplayer.keyHandler)
-
+	#newplayer = player.Player(x = 49, y = 300)
+	#game_window.push_handlers(newplayer.keyHandler)
+	
 	tile_x = resources.screen_width * 0.5 - 336
 	for i in range(0, resources.TILE_AMOUNT):
 		newtile = tile.Tile(x = tile_x, y = 56)
@@ -90,7 +94,7 @@ def on_key_press(symbol, modifiers):
 
 	if symbol == key.R:
 		delete()
-		init_level()
+		init_title()
 
 @game_window.event
 def on_mouse_release(x, y, button, modifiers):

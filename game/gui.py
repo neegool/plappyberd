@@ -1,4 +1,5 @@
-import math, gameobject, resources, util, random
+import math, random
+from . import gameobject, resources, util
 
 class GUIManager(gameobject.GameObject):
 	# GUI Elements
@@ -163,7 +164,7 @@ class GUIManager(gameobject.GameObject):
 		# show the "Game Over" image
 		if self.flashed == True:
 			self.counter += dt
-		 	if self.over == False:
+			if self.over == False:
 				if self.counter > 0.5:
 					for obj in self.score:
 						obj.set_opacity(0)
